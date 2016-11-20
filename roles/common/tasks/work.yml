@@ -48,7 +48,6 @@
     - nfs-kernel-server
     - nfs-common
     - rpcbind
-    - tmux
     - libjpeg-dev
     - libfreetype6-dev
     - zlib1g-dev
@@ -101,17 +100,6 @@
     - {name: 'jshint'}
     - {name: 'coffee-jshint'}
     - {name: 'localtunnel'}
-
-- name: install tmuxp
-  pip:
-    name: tmuxp
-  sudo: yes
-
-- name: copy tmuxp config
-  copy:
-    src: .tmux.conf
-    dest: "{{ ansible_env.HOME }}/.tmux.conf"
-    mode: 0755
 
 - name: install ipython
   pip:

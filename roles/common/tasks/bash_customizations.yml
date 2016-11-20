@@ -5,12 +5,6 @@
     regexp: "force_color_prompt="
     line: "force_color_prompt=yes"
 
-- name: bash customizations - download django bash completion
-  get_url:
-    url: https://raw.githubusercontent.com/django/django/master/extras/django_bash_completion
-    dest: "{{ ansible_env.HOME }}/.django_bash_completion.sh"
-    mode: 0755
-
 - name: bash customizations - copy .bash_customizations file
   copy:
     src: .bash_customizations

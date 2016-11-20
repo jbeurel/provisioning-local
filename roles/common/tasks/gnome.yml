@@ -1,0 +1,7 @@
+---
+- name: enable workspaces - two vertical
+  gsettings:
+    schema: org.compiz.core:/org/compiz/profiles/unity/plugins/core/
+    key: vsize
+    int: 2
+
