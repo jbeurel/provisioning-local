@@ -18,25 +18,6 @@
   sudo: yes
   when: "result.rc !=0 or 'A later version is already installed' in result.stderr"
 
-- name: download virtualbox .deb package
-  get_url:
-    url: "{{ virtualbox_url }}"
-    dest: "{{ ansible_env.HOME }}/setup/virtualbox.deb"
-    mode: 0755
-
-- name: get currently installed virtualbox version
-  command: "vboxmanage --version"
-  sudo: yes
-  register: result
-  ignore_errors: True
-  always_run: True
-
-- name: install virtualbox
-  apt:
-    deb: "{{ ansible_env.HOME }}/setup/virtualbox.deb"
-  sudo: yes
-  when: "result.rc !=0"
-
 - name: install wave dependencies
   apt:
     name: "{{ item }}"
